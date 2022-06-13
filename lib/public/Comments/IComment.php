@@ -303,7 +303,7 @@ interface IComment {
 	/**
 	 * Set message expire date
 	 *
-	 * @param \DateTime $dateTime
+	 * @param \DateTime|null $dateTime
 	 * @return IComment
 	 * @since 25.0.0
 	 */

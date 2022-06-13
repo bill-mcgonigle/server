@@ -726,8 +726,8 @@ class ManagerTest extends TestCase {
 		$this->assertSame($comment->getObjectType(), 'files');
 		$this->assertSame($comment->getObjectId(), 'file64');
 
-		$totalDeleted = $manager->deleteMessageExpiredAtObject('files', 'file64');
-		$this->assertEquals(3, $totalDeleted);
+		$deleted = $manager->deleteMessageExpiredAtObject('files', 'file64');
+		$this->assertTrue($deleted);
 
 		$deleted = 0;
 		$exists = 0;
@@ -744,8 +744,8 @@ class ManagerTest extends TestCase {
 
 		// actor info is gone from DB, but when database interaction is alright,
 		// we still expect to get true back
-		$totalDeleted = $manager->deleteMessageExpiredAtObject('files', 'file64');
-		$this->assertEquals(0, $totalDeleted);
+		$deleted = $manager->deleteMessageExpiredAtObject('files', 'file64');
+		$this->assertFalse($deleted);
 	}
 
 	public function testSetMarkRead() {

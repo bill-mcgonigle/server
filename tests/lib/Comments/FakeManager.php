@@ -142,7 +142,7 @@ class FakeManager implements ICommentsManager {
 		return [];
 	}
 
-	public function deleteMessageExpiredAtObject(string $objectType, string $objectId): int {
-		return 0;
+	public function deleteMessageExpiredAtObject(string $objectType, string $objectId): bool {
+		return true;
 	}
 }

@@ -1650,7 +1650,7 @@ class Manager implements ICommentsManager {
 	/**
 	 * @inheritDoc
 	 */
-	public function deleteMessageExpiredAtObject(string $objectType, string $objectId): int {
+	public function deleteMessageExpiredAtObject(string $objectType, string $objectId): bool {
 		$qb = $this->dbConn->getQueryBuilder();
 		$affectedRows = $qb->delete('comments')
 			->where($qb->expr()->lt('expire_date',
@@ -1661,6 +1661,6 @@ class Manager implements ICommentsManager {
 
 		$this->commentsCache = [];
 
-		return $affectedRows;
+		return $affectedRows > 0;
 	}
 }

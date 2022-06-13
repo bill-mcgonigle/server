@@ -49,6 +49,7 @@ class Version25000Date20220602190540 extends SimpleMigrationStep {
 			$comments->addColumn('expire_date', Types::DATETIME, [
 				'notnull' => false,
 			]);
+			$comments->addIndex(['expire_date'], 'expire_date');
 			return $schema;
 		}
 		return null;

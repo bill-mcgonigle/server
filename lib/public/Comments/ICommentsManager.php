@@ -489,8 +489,8 @@ interface ICommentsManager {
 	 *
 	 * @param string $objectType the object type (e.g. 'files')
 	 * @param string $objectId e.g. the file id
-	 * @return int Affected rows
+	 * @return boolean true if rows was deleted
 	 * @since 25.0.0
 	 */
-	public function deleteMessageExpiredAtObject(string $objectType, string $objectId): int;
+	public function deleteMessageExpiredAtObject(string $objectType, string $objectId): bool;
 }
